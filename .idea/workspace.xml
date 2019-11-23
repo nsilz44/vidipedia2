@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="136c15ba-4b10-4d65-939a-017c1658fb75" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,8 +17,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/home_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+            <state relative-caret-position="238">
+              <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -24,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+            <state relative-caret-position="282">
+              <caret line="42" column="19" lean-forward="true" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -38,13 +40,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/templates/home_page.html" />
         <option value="$PROJECT_DIR$/templates/index.css" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="729" />
-    <option name="width" value="644" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="676" />
+    <option name="width" value="697" />
     <option name="height" value="735" />
   </component>
   <component name="ProjectView">
@@ -95,6 +98,16 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="home_page.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/vidipedia/templates/home_page.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.home_page.html" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -105,7 +118,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574535996273</updated>
-      <workItem from="1574535998202" duration="847000" />
+      <workItem from="1574535998202" duration="2892000" />
     </task>
     <task id="LOCAL-00001" summary="added home page">
       <created>1574536170047</created>
@@ -118,14 +131,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="847000" />
+    <option name="totallyTimeSpent" value="2892000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="676" y="0" width="697" height="735" extended-state="0" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11043873" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22919936" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
@@ -155,15 +167,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/templates/home_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        <state relative-caret-position="238">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        <state relative-caret-position="282">
+          <caret line="42" column="19" lean-forward="true" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
         </state>
       </provider>
     </entry>
