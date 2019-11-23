@@ -30,15 +30,11 @@ def root():
 
 @app.route('/video/<videoname>')
 def video(videoname):
-    url = "https://storage.cloud.google.com/vidipedia-video-storage/{}.mp4".format(videoname)
+    url = "https://storage.googleapis.com/vidipedia-video-storage/{}.mp4".format(videoname)
     return render_template('video.html', title=videoname, videoURL=url)
-
-@app.route('/upload')
-def upload_file():
-   return render_template('upload.html')
 	
-@app.route('/uploader', methods = ['POST'])
-def uploader():
+@app.route('/upload', methods = ['POST'])
+def upload():
     # TODO: sanitize so only mp4 is valid
     if request.method == 'POST':
         try:
