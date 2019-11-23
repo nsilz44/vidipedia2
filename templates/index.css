@@ -18,7 +18,7 @@ input[type=text] {
     margin-left: 50%;
     margin-bottom: 5%;
     font-size: 20px;
-    color: white;
+    color: black;
     /*background-color: #1f1f24;*/
     border-color: white;
     border-radius: 15px;
@@ -31,7 +31,6 @@ input[type=text] {
     top: 0;
     left: 0;
     background-color: #1f1f24;
-    overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
 }
 .sidenav a{
