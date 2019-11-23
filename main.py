@@ -28,23 +28,25 @@ def upload_to_bucket(blob_name, file, bucket_name):
 def root():
     return render_template('index.html')
 
-@app.route('/video')
-def video():
-    return render_template('videoPage.html', title="Testtitle", videoURL="https://cdn.videvo.net/videvo_files/video/premium/video0028/small_watermarked/happy07_preview.mp4")
+@app.route('/video/<videoname>')
+def video(videoname):
+    url = "https://storage.cloud.google.com/vidipedia-video-storage/{}.mp4".format(videoname)
+    return render_template('videoPage.html', title=videoname, videoURL=url)
 
 @app.route('/upload')
 def upload_file():
    return render_template('upload.html')
 	
-@app.route('/uploader', methods = ['GET', 'POST'])
+@app.route('/uploader', methods = ['POST'])
 def uploader():
     # TODO: sanitize so only mp4 is valid
     if request.method == 'POST':
         try:
             videofile = request.files.get('file', None) # Maybe last None
+            videoname = videofile.name
             if not videofile:
                 return jsonify({'msg': 'Missing image, can not change avatar'})
-            filename = '{}.mp4'.format(uuid.uuid4())
+            filename = '{}.mp4'.format(videoname)
             url = upload_to_bucket(filename, videofile, 'vidipedia-video-storage')
             return jsonify({'msg': 'File uploaded successfully, can be viewed at: '+str(url)})
         except Exception as err:
