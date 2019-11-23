@@ -28,23 +28,26 @@
 <script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
 <!--box for cutting the video in a specific place-->
 <form>
-    <label for="removestart"> Remove Between: </label>
-    <input type="text" id="removestart" name="removestart" pattern="^[0-5][0-9]\:[0-5][0-9]"
-           value="00:00" min="00:00" required>
-    <label for="removeend"> and </label>
-    <input type="text" id="removeend" name="removeend" pattern="^[0-5][0-9]\:[0-5][0-9]"
-           value="00:00" min="00:00" required>
-    <button type="button" class="btn btn-danger" id="removebutton" name="removebutton">Remove
-    </button>
+    <div class="form-group">
+        <label for="removestart"> Remove between: </label>
+        <input type="text" id="removestart" name="removestart" pattern="^[0-5][0-9]\:[0-5][0-9]"
+               value="00:00" min="00:00" required>
+        <label for="removeend"> and </label>
+        <input type="text" id="removeend" name="removeend" pattern="^[0-5][0-9]\:[0-5][0-9]"
+               value="00:00" min="00:00" required>
+        <button type="button" class="btn btn-danger" id="removebutton" name="removebutton">Remove
+        </button>
+    </div>
 </form>
 <!--box for inserting video at a specific time -->
-<form action="http://localhost:5000/uploader" method="POST"
-      enctype="multipart/form-data">
-    <input type="file" name="file"/>
-    <label for="insertvideo"> Insert video at:</label>
-    <input type="text" id="inserttime" name="inserttime" pattern="^[0-5][0-9]\:[0-5][0-9]"
-           value="00:00" min="00:00" required>
-    <input type="submit"/>
+<form action="http://localhost:5000/uploader" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <input type="file" name="file"/>
+        <label for="inserttime"> Insert video at:</label>
+        <input type="text" id="inserttime" name="inserttime" pattern="^[0-5][0-9]\:[0-5][0-9]"
+               value="00:00" min="00:00" required>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
 </form>
 
 </body>
