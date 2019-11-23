@@ -31,7 +31,7 @@ def root():
 @app.route('/video/<videoname>')
 def video(videoname):
     url = "https://storage.cloud.google.com/vidipedia-video-storage/{}.mp4".format(videoname)
-    return render_template('videoPage.html', title=videoname, videoURL=url)
+    return render_template('video.html', title=videoname, videoURL=url)
 
 @app.route('/upload')
 def upload_file():

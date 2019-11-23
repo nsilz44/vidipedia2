@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link href="/static/video.css" type="text/css" rel="stylesheet">
+    <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<h1>{{ title }}</h1>
+<video
+        id="the-video"
+        class="video-js vjs-big-play-centered vid"
+        controls preload="auto"
+        width="1280"
+        height="720"
+        data-setup="{}"
+>
+    <source src="{{ videoURL }}" type="video/mp4"/>
+    <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+</video>
+
+<script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
+<!--box for cutting the video in a specific place-->
+<form>
+    <div class="form-row">
+        <div class="col-5">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"> Remove between</div>
+                </div>
+                <input type="text" id="removestart" name="removestart" pattern="^[0-5][0-9]\:[0-5][0-9]"
+                       value="00:00" min="00:00" required>
+                <div class="input-group-prepend">
+                    <div class="input-group-text"> and</div>
+                </div>
+                <input type="text" id="removeend" name="removeend" pattern="^[0-5][0-9]\:[0-5][0-9]"
+                       value="00:00" min="00:00" required>
+            </div>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-danger" id="removebutton" name="removebutton">Remove
+            </button>
+        </div>
+    </div>
+</form>
+<!--box for inserting video at a specific time -->
+<form action="/uploader" method="POST" enctype="multipart/form-data">
+    <div class="form-row">
+        <div class="col-2">
+            <input type="file" name="file" class="form-control-file"/>
+        </div>
+        <div class="col-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Insert video at:</div>
+                </div>
+                <input type="text" id="inserttime" name="inserttime" pattern="^[0-5][0-9]\:[0-5][0-9]"
+                       value="00:00" min="00:00" required>
+            </div>
+        </div>
+        <div class="col-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
