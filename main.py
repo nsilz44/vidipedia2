@@ -1,41 +1,32 @@
-# Copyright 2018 Google LLC
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+from flask import Flask, render_template, request, jsonify
 
-# [START gae_python37_app]
-from flask import Flask, render_template, request
-from werkzeug import secure_filename
+import uuid
+from google.cloud import storage
 
+import os
 
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
 # called `app` in `main.py`.
 app = Flask(__name__)
 
 
+def upload_to_bucket(blob_name, file, bucket_name):
+    """ Upload data to a bucket"""
+
+    # Explicitly use service account credentials by specifying the private key
+    # file.
+    storage_client = storage.Client.from_service_account_json('creds.json')
+
+    bucket = storage_client.get_bucket(bucket_name)
+    blob = bucket.blob(blob_name)
+    blob.upload_from_file(file)
+
+    #returns a public url
+    return blob.public_url
+
 @app.route('/')
 def hello():
-    """Return a friendly HTTP greeting."""
-    return 'Hello World!'
-
-# @app.route('/videos/<video_name>', methods = ['GET', 'POST'])
-# def user(user_id):
-#     if request.method == 'GET':
-#         return 'get'
-#     if request.method == 'POST':
-#         data = request.form
-#     else:
-#         return 'request not allowed'
-
+    return jsonify({'msg': 'Index Page'})
 
 @app.route('/upload')
 def upload_file():
@@ -43,15 +34,20 @@ def upload_file():
 	
 @app.route('/uploader', methods = ['GET', 'POST'])
 def uploader():
-   if request.method == 'POST':
-      f = request.files['file']
-      f.save(secure_filename(f.filename))
-      return 'file uploaded successfully'
+    # TODO: sanitize so only mp4 is valid
+    if request.method == 'POST':
+        try:
+            videofile = request.files.get('file', None) # Maybe last None
+            if not videofile:
+                return jsonify({'msg': 'Missing image, can not change avatar'})
+            filename = '{}.mp4'.format(uuid.uuid4())
+            url = upload_to_bucket(filename, videofile, 'vidipedia-video-storage')
+            return jsonify({'msg': 'File uploaded successfully, can be viewed at: '+str(url)})
+        except Exception as err:
+            return jsonify({'msg': 'Error uploading file'})
 		
-
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
     # Engine, a webserver process such as Gunicorn will serve the app. This
     # can be configured by adding an `entrypoint` to app.yaml.
     app.run(host='127.0.0.1', port=8080, debug=True)
-# [END gae_python37_app]
