@@ -5,6 +5,8 @@
     <title>{{ title }}</title>
     <link href="/static/video.css" type="text/css" rel="stylesheet">
     <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <h1>{{ title }}</h1>
@@ -32,8 +34,8 @@
     <label for="removeend"> and </label>
     <input type="text" id="removeend" name="removeend" pattern="^[0-5][0-9]\:[0-5][0-9]"
            value="00:00" min="00:00" required>
-    <input type="button" id="removebutton" name="removebutton" value="Remove"
-           required>
+    <button type="button" class="btn btn-danger" id="removebutton" name="removebutton">Remove
+    </button>
 </form>
 <!--box for inserting video at a specific time -->
 <form action="http://localhost:5000/uploader" method="POST"
