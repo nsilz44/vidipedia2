@@ -25,8 +25,12 @@ def upload_to_bucket(blob_name, file, bucket_name):
     return blob.public_url
 
 @app.route('/')
-def hello():
-    return jsonify({'msg': 'Index Page'})
+def root():
+    return render_template('index.html')
+
+@app.route('/video')
+def video():
+    return render_template('videoPage.html', title="Testtitle", videoURL="https://cdn.videvo.net/videvo_files/video/premium/video0028/small_watermarked/happy07_preview.mp4")
 
 @app.route('/upload')
 def upload_file():
