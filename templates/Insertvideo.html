@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <!--box for cutting the video in a specific place-->
+        <form>
+            <label for="removestart"> Remove Between: </label>
+                <input type="text" id="removestart" name="removestart" pattern="^[0-5][0-9]\:[0-5][0-9]"
+                value="00:00" min="00:00" required>
+             <label for="removeend"> and </label>
+                <input type="text" id="removeend" name="removeend" pattern="^[0-5][0-9]\:[0-5][0-9]"
+                value="00:00" min="00:00" required>
+                <input type="button" id="removebutton" name="removebutton" value="Remove"
+                required>
+        </form>
+       <!--box for inserting video at a specific time --> 
+        <form action = "http://localhost:5000/uploader" method = "POST" 
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+            <label for="insertvideo"> Insert video at:</label>
+                <input type="text" id="inserttime" name="inserttime" pattern="^[0-5][0-9]\:[0-5][0-9]"
+                value="00:00" min="00:00" required>
+                <input type = "submit"/>
+        </form>
+
+    </body>
+</html>
