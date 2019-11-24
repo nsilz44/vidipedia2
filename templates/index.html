@@ -21,8 +21,8 @@
         </nav>
         <img class="logo" src="/static/Brown%20Rectangle%20Photography%20Logo.png" alt="Vidipedia">
 
-        <form>
-            <input class="searchBar" type="text" placeholder="Search" style="border-radius: 10px;">
+        <form onsubmit="location.href='/video/' + document.getElementById('videoName').value; return false;">
+            <input id="videoName" class="searchBar" type="text" placeholder="Search" style="border-radius: 10px;">
         </form>
         <br>
         <h1 style="color:white">Upload a video file</h1>

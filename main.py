@@ -39,14 +39,13 @@ def upload():
     if request.method == 'POST':
         try:
             videofile = request.files.get('file', None) # Maybe last None
-            videoname = videofile.name
+            videoname = videofile.filename
             if not videofile:
                 return jsonify({'msg': 'Missing image, can not change avatar'})
-            filename = '{}.mp4'.format(videoname)
-            url = upload_to_bucket(filename, videofile, 'vidipedia-video-storage')
+            url = upload_to_bucket(videoname, videofile, 'vidipedia-video-storage')
             return jsonify({'msg': 'File uploaded successfully, can be viewed at: '+str(url)})
         except Exception as err:
-            return jsonify({'msg': 'Error uploading file'})
+            return jsonify({'msg': str(err)})
 		
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
