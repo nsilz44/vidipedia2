@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
-<!--    <link href="/static/video.css" type="text/css" rel="stylesheet">-->
+    <link href="/static/video.css" type="text/css" rel="stylesheet">
     <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <h1>{{ title }}</h1>
+<div class="embed-responsive embed-responsive-16by9 vid-max">
 <video
         id="the-video"
-        class="video-js vjs-big-play-centered"
+        class="video-js vjs-big-play-centered embed-responsive-item"
         controls preload="auto"
-        width="1280"
-        height="720"
         data-setup="{}"
 >
     <source src="{{ videoURL }}" type="video/mp4"/>
@@ -24,7 +23,7 @@
         <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
     </p>
 </video>
-
+</div>
 <script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
 <!--box for cutting the video in a specific place-->
 <form>
