@@ -9,12 +9,26 @@
     </head>
 
     <body>
+        <nav class="sidenav">
+            <div>
+                <ul>
+                    <li><a href="#" style="color:white">About</a></li>
+                    <li><a href="#" style="color:white">Settings</a></li>
+                    <li><a href="#" style="color:white">Log In</a></li>
+                    <li><a href="#" style="color:white">Sign Up</a></li>
+                </ul>
+            </div>
+        </nav>
         <img class="logo" src="/static/Brown%20Rectangle%20Photography%20Logo.png" alt="Vidipedia">
-        <form enctype="multipart/form-data" action = "/upload" method="post">
-            <input id="video-file" type="file" name="file" onchange="form.submit()" />
+
+        <form>
+            <input class="searchBar" type="text" placeholder="Search" style="border-radius: 10px;">
         </form>
-        <form class="navbar-search pull-left">
-            <input type="text" class="search-query" placeholder="Search">
+        <br>
+        <h1 style="color:white">Upload a video file</h1>
+        <br>
+        <form enctype="multipart/form-data" action = "/upload" method="post">
+            <input class = "fileUploadBar" id="video-file" type="file" name="file" onchange="form.submit()" />
         </form>
     </body>
 </html>
