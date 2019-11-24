@@ -2,13 +2,22 @@ from flask import Flask, render_template, request, jsonify
 
 import uuid
 from google.cloud import storage
-
+import pymongo
 import os
 
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
 # called `app` in `main.py`.
 app = Flask(__name__)
 
+#access to mongo in python
+#myclient = pymongo.MongoClient("vidipedia-cluster-lfvr7.gcp.mongodb.net:27017")
+
+#mydb = myclient["mydatabase"]
+#mycol = mydb["customers"]
+#mydict = { "name": "John", "address": "Highway 37" }
+
+#x = mycol.insert_one(mydict)
+#print(myclient.list_database_names())
 
 def upload_to_bucket(blob_name, file, bucket_name):
     """ Upload data to a bucket"""
